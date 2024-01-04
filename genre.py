@@ -23,12 +23,12 @@ for genre in data['genres']:
 
 # converting genre name to its ID --------------------------------------
 
-def genreID_conversion(list):
+def genreID_conversion(genre_list):
     # take the list 2 which contains our genre of interest 
     # and compare it to our genre_dict 
     # convert genre name >> genre_ID 
     genreID_list = []
-    for genre in checkList.list2:
+    for genre in genre_list:
         for genre_ID in genre_dict:
             if genre_dict[genre_ID] == genre:
                 genreID_list.append(genre_ID)
@@ -40,8 +40,8 @@ def genreID_conversion(list):
 # calling Checklist class ------------------------------------
 
 checkList = ck.CheckList(genre_dict)
-genreID_list = genreID_conversion(checkList.list2)
-# print(genreID_list)
+genreID_list = genreID_conversion(checkList.genre_list)
+print(genreID_list)
 
 
 #TODO: API call to discover API  -----------------------------------
@@ -56,14 +56,15 @@ data = r.json()
 
 for item in data['results']:
     movieTitle = item['original_title']
-    print(movieTitle) 
+    # print(movieTitle) 
 
     overview = item['overview']
-    print(overview)
+    # print(overview)
 
-    url = item['poster_path']
-    print(url)
+    file_path = item['poster_path']
+    # print(file_path)
 
+# full image URL: https://image.tmdb.org/t/p/w500/ + filepath!! 
 
 # ---------------------------------------
 
